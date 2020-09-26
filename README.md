@@ -3,6 +3,26 @@
 Thoughts while building:
 HTML use br if need be, emphasize using CSS first
 
+Sat Office Hours
+
+second page for high scores?
+
+array object
+title
+choices
+answer
+
+make function to check answer, button click to bring up next one
+
+nextQuestion function
+iterator + array index id # (array++)
+-increment the array 
+
+trick to project: manage your array index
+
+switch for each question boolean if "correct answer" return true, else return false and subtract time
+-both move on to next question (array++)
+
 
 // # 04 Web APIs: Code Quiz
 // As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple - choice questions and interactive challenges.Build a timed code quiz with multiple - choice questions.This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code.It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
@@ -19,7 +39,7 @@ HTML use br if need be, emphasize using CSS first
         // 3. Lose time
 
 // THEN a timer starts and I am presented with a question
-        //* DON'T USE A LOOP
+        //* DON'T USE A LOOP--------------------------------------------office hours
 
 
 
