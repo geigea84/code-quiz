@@ -2,29 +2,29 @@
 var questions = [
     {
         title:"testing: click response a", 
-        choices:["a", "b", "c", "d"],
+        choices:["a", " b", " c", " d"],
         answer:"a"
     },
     {
         title:"testing: click response b",
-        choices:["a", "b", "c", "d"],
+        choices:["a", " b", " c", " d"],
         answer:"b"
     },
     {
         title:"testing: click response c",
-        choices:["a", "b", "c", "d"],
+        choices:["a", " b", " c", " d"],
         answer:"c"
     }
 ];
 var questionsList = document.querySelector("#questions-list");
 var titlePage = document.querySelector(".title-page");
-var startButton = document.querySelector("#start-quiz");
 
 //function to start quiz and timer
 var startQuiz = function() {
     console.log("startQuiz works");
 
     //remove previous html
+    titlePage.remove();
 
     //start timer
 
@@ -40,7 +40,7 @@ var startQuiz = function() {
     
     //adding array to div inside li
     questionInfoEl.innerHTML = 
-    "<h2 class ='question-title'>" + questions[0].title + "</h2><span class ='choice-list'>" + questions[0].choices + "</span>";
+    "<h2 class ='question-title'>" + questions[0].title + "</h2><button class ='choice-list'>" + questions[0].choices + "</button>";
     console.log(questionInfoEl.innerHTML);
 
     //adding array to page
