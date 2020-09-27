@@ -16,9 +16,11 @@ var questions = [
         answer:"c"
     }
 ];
-var questionsList = document.querySelector("#questions-list");
+var questionsList = document.querySelector(".questions-list");
 var titlePage = document.querySelector(".title-page");
 var pageContent = document.querySelector(".page-content");
+var questionTitle = document.querySelector("#question-title");
+var choiceList = document.querySelector("#choice-list");
 
 //function to start quiz and timer
 var startQuiz = function() {
@@ -29,6 +31,7 @@ var startQuiz = function() {
 
     //start timer
 
+    //move all of the following insert stuff to next function
     //adding array to html as list items
     var listItemEl = document.createElement("li");
     listItemEl.className = "question-item";
@@ -41,11 +44,11 @@ var startQuiz = function() {
     
     //adding array to div inside li
     questionInfoEl.innerHTML = 
-    "<h2 class ='question-title'>" + questions[0].title + "</h2>" +
-    "<button class ='choice-list'>" + questions[0].choices[0] + "</button>" +
-    "<button class ='choice-list'>" + questions[0].choices[1] + "</button>" +
-    "<button class ='choice-list'>" + questions[0].choices[2] + "</button>" +
-    "<button class ='choice-list'>" + questions[0].choices[3] + "</button>";
+    "<h2 id ='question-title'>" + questions[0].title + "</h2>" +
+    "<button id ='choice-list'>" + questions[0].choices[0] + "</button>" +
+    "<button id ='choice-list'>" + questions[0].choices[1] + "</button>" +
+    "<button id ='choice-list'>" + questions[0].choices[2] + "</button>" +
+    "<button id ='choice-list'>" + questions[0].choices[3] + "</button>";
     console.log(questionInfoEl.innerHTML);
 
     //adding array to page
@@ -60,8 +63,10 @@ var startQuiz = function() {
 //function to select answers in quiz
 var clickAnswerButton = function() {
     console.log("clickAnswerButton works");
+
+
 };
 
 //function to
 
-pageContent.addEventListener("click", startQuiz);
+titlePage.addEventListener("click", startQuiz);
