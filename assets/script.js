@@ -48,12 +48,9 @@ var startQuiz = function(event) {
     clickAnswerButton();
 };
 
+//function to select answers in quiz
 var clickAnswerButton = function() {
     console.log("clickAnswerButton works");
 };
-
-//function to choose answer and proceed to next question
-
-//function to
 
 titlePage.addEventListener("click", startQuiz);
