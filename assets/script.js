@@ -15,8 +15,7 @@ var questions = [
         choices:["a", "b", "c", "d"],
         answer:"c"
     }
-]
-questions.className = "questionEl"
+];
 var questionTitle = document.querySelector(".question-title");
 var questionsList = document.querySelector("#questions-list");
 var titlePage = document.querySelector(".title-page");
@@ -38,14 +37,13 @@ var startQuiz = function(event) {
 
     //add li to ul----------------------------------------needs verification
     //how to add var questions array to questionsList--------------------???
-    //questionInfoEl.appendChild(questionEl);
     listItemEl.appendChild(questionInfoEl);
     questionsList.appendChild(listItemEl);
     
     //use list item div as html element
     if (targetEl.matches("start-quiz")) {
-
-    }
+        document.getElementById("question-info").innerHTML = questions[0];
+    };
 
     clickAnswerButton();
 };
