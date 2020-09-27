@@ -16,15 +16,17 @@ var questions = [
         answer:"c"
     }
 ];
-var questionTitle = document.querySelector(".question-title");
 var questionsList = document.querySelector("#questions-list");
 var titlePage = document.querySelector(".title-page");
 var startButton = document.querySelector("#start-quiz");
 
 //function to start quiz and timer
-var startQuiz = function(event) {
-    var targetEl = event.target;
+var startQuiz = function() {
     console.log("startQuiz works");
+
+    //remove previous html
+
+    //start timer
 
     //adding array to html as list items
     var listItemEl = document.createElement("li");
@@ -34,16 +36,18 @@ var startQuiz = function(event) {
     //adding div to li to hold question info
     var questionInfoEl = document.createElement("div");
     questionInfoEl.className = "question-info";
+    console.log(questionInfoEl);
+    
+    //adding array to div inside li
+    questionInfoEl.innerHTML = 
+    "<h2 class ='question-title'>" + questions[0].title + "</h2><span class ='choice-list'>" + questions[0].choices + "</span>";
+    console.log(questionInfoEl.innerHTML);
 
-    //add li to ul----------------------------------------needs verification
-    //how to add var questions array to questionsList--------------------???
+    //adding array to page
     listItemEl.appendChild(questionInfoEl);
     questionsList.appendChild(listItemEl);
-    
-    //use list item div as html element
-    if (targetEl.matches("start-quiz")) {
-        document.getElementById("question-info").innerHTML = questions[0];
-    };
+    console.log(listItemEl.appendChild);
+    console.log(questionsList.appendChild);
 
     clickAnswerButton();
 };
@@ -52,5 +56,7 @@ var startQuiz = function(event) {
 var clickAnswerButton = function() {
     console.log("clickAnswerButton works");
 };
+
+//function to
 
 titlePage.addEventListener("click", startQuiz);
