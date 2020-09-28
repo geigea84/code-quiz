@@ -7,6 +7,8 @@ Sat Office Hours
 
 second page for high scores?
 
+onclick/this.value evaluation
+
 array object
 title
 choices
