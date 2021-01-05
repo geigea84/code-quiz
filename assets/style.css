@@ -19,3 +19,7 @@ body {
 .choice-list {
     padding: 20px;
 }
+
+.hide {
+    display: none;
+}
