@@ -16,10 +16,19 @@ body {
     text-align: center;
 }
 
-.choice-list {
+.page-content {
     padding: 20px;
 }
 
 .hide {
     display: none;
 }
+
+/*.correct {
+
+}
+
+.wrong {
+
+}*/
+
