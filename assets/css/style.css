@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color1: #Ffff00;
+    --color2: #293250;
+    --color3: #008080;
+    --color4: rgba(0, 128, 128, .3);
+    --color5: rgba(0, 128, 128, .6);
+}
+
+body {
+    text-align: center;
+}
+
+header {
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 20px;
+    align-content: flex-start;
+}
+
+#high-scores {
+    text-align: left;
+}
+
+#timer {
+    text-align: right;
+}
+
+a:link, a:visited {
+    color: var(--color1);
+}
+
+.page-content {
+    padding: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.wrong {
+    background-color: red;
+    color: white;
+}
+

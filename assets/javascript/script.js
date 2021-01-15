@@ -72,10 +72,14 @@ function answerQuestion() {
         console.log(this.value);
         console.log("wrong");
         time = time - 10;
+        //fix timing
+        this.setAttribute("class", "wrong");
     }
     else {
         console.log(this.value);
         console.log("correct");
+        //fix timing
+        this.setAttribute("class", "correct");
     }
 
     questionIndex++
