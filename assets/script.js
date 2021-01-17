@@ -53,6 +53,14 @@ var clickAnswerButton1 = function() {
     //remove previous html
     titlePage.remove();
 
+    //for loop, append button rather than replace
+    //generate one line, index number in choices will change, add/append onto itself
+    //dynamic generation vs hard code
+    //move from question to question-instead of index number for choices changing,
+    //the index number for questions will change
+    //manual increment-every time user clicks on a button an event happens, use button
+    //click to increment counter-can be a global variable to be accessed from anywhere
+
     //insert array info
     questionWrapper1.innerHTML = 
     "<h2 class ='question-title'>" + questions[0].title + "</h2>" +
@@ -62,6 +70,11 @@ var clickAnswerButton1 = function() {
     "<button class ='choice-list' id='but4'>" + questions[0].choices[3] + "</button>";
 
     //moving var to global scope won't let me grab innerHTML id---move to outside?
+    //dynamic vs hard code
+    //if (compare content of the choice that was clicked to the object answer)
+    //keyword 'this' will be important in collecting information from input that the
+    //user gave
+    //this-dynamic keyword, changes in relation to each situation when the line is running
     var right1 = document.getElementById('but1').innerHTML;
     var wrong1 = 
     document.getElementById('but2').innerHTML +
