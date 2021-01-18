@@ -26,7 +26,9 @@ const finishEl = document.querySelector("#finish");
 const timerEl = document.querySelector("#timer");
 const questionTitle = document.querySelector("#question-title");
 const responseOptions = document.querySelector("#response-options");
+const questionFeedback = document.querySelector("#question-feedback");
 const finalScore = document.querySelector("#final-score");
+const initialsEl = document.querySelector("#initials");
 
 function startQuiz() {
     startEl.setAttribute("class", "hide");
@@ -73,20 +75,27 @@ function answerQuestion() {
         console.log("wrong");
         time = time - 10;
         //fix timing
-        this.setAttribute("class", "wrong");
+        questionFeedback.setAttribute("class", "wrong");
+        questionFeedback.textContent = "Wrong!";
     }
     else {
         console.log(this.value);
         console.log("correct");
         //fix timing
-        this.setAttribute("class", "correct");
+        questionFeedback.setAttribute("class", "correct");
+        questionFeedback.textContent = "Correct!";
     }
+
+    //questionFeedback.removeAttribute("class");
+    setTimeout(function () {
+        questionFeedback.setAttribute("class", "hide");
+    }, 500);
 
     questionIndex++
     console.log(questionIndex);
 
     if (questionIndex == questions.length) {
-        endQuiz();
+        setTimeout(endQuiz, 500);
     }
     else {
         startQuestions();
@@ -119,4 +128,27 @@ function timerCountdown() {
     }
 }
 
+function saveScore() {
+    let initials = initialsEl.value.trim();
+
+    if (initials == "") {
+        alert("Please enter your initials");
+    }
+    else {
+        //https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+        let highScores = JSON.parse(window.localStorage.getItem("scores")) || [];
+
+        let newScore = {
+            score: time,
+            initials: initials
+        }
+
+        highScores.push(newScore);
+        window.localStorage.setItem("scores", JSON.stringify(highScores));
+
+        window.location.href = "scores.html"
+    }
+}
+
 document.querySelector("#start-btn").addEventListener("click", startQuiz);
+document.querySelector("#finish-btn").addEventListener("click", saveScore);
