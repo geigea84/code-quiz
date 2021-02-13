@@ -2,6 +2,8 @@
 
 This project is a fun, brief quiz highlighting America's best sports teams.  There is no bias whatsoever in determining which teams are the best.
 
+deployed site: https://geigea84.github.io/code-quiz/
+
 ![screenshot](./assets/images/screenshot.png)
 
 // # 04 Web APIs: Code Quiz
