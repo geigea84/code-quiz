@@ -1,18 +1,18 @@
 let questions = [
     {
-        title: "question 1: click response a",
-        options: ["choose a", "choose b", "choose c", "choose d"],
-        answer: "choose a"
+        title: "Which is the best football team?",
+        options: ["Green Bay Packers", "Chicago Bears", "Minnesota Vikings", "Detroit Lions"],
+        answer: "Green Bay Packers"
     },
     {
-        title: "question 2: click response b",
-        options: ["choose a", "choose b", "choose c", "choose d"],
-        answer: "choose b"
+        title: "Which is the best baseball team?",
+        options: ["Milwaukee Brewers", "Chicago Cubs", "St. Louis Cardinals", "Pittsburgh Pirates"],
+        answer: "Milwaukee Brewers"
     },
     {
-        title: "question 3: click response c",
-        options: ["choose a", "choose b", "choose c", "choose d"],
-        answer: "choose c"
+        title: "Which is the best basketball team?",
+        options: ["Milwaukee Bucks", "Chicago Bulls", "Detroit Pistons", "It's basketball, who cares?"],
+        answer: "It's basketball, who cares?"
     }
 ];
 
@@ -42,15 +42,15 @@ function startQuiz() {
 }
 
 function startQuestions() {
-    
+
     //use questionTitle and responseOptions rather than questionsEl?
     responseOptions.innerHTML = "";
 
     let currentQuestion = questions[questionIndex]
 
     questionTitle.textContent = currentQuestion.title;
-    
-    currentQuestion.options.forEach(function(option) {
+
+    currentQuestion.options.forEach(function (option) {
         let optionButton = document.createElement("button");
         optionButton.setAttribute("class", "option");
         optionButton.setAttribute("value", option);
@@ -119,11 +119,11 @@ function endQuiz() {
 
 function timerCountdown() {
     timerEl.textContent = time;
-    
+
     if (time > 0) {
         time--;
     }
-    else if(time <= 0) {
+    else if (time <= 0) {
         endQuiz();
     }
 }

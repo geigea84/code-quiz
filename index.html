@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CODE QUIZ</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body class="page-content">
+  <body class="page-content">
     <!--link to high scores and timer-->
     <header>
-        <div id="high-scores">
-            <!--high scores link goes here-->
-            <a href="./scores.html">High Scores</a>
-        </div>
-        <div id="timer">
-            <!--timer goes here-->
-        </div>
+      <div id="high-scores">
+        <!--high scores link goes here-->
+        <a href="./scores.html">High Scores</a>
+      </div>
+      <div>
+        <h1>Best Sports Teams!</h1>
+      </div>
+      <div id="timer">
+        <!--timer goes here-->
+      </div>
     </header>
 
     <!--starting screen-->
     <section id="start">
-        <h1>
-            This is the Code Quiz!
-        </h1>
-        <div>
-            <p>This is some text about how the quiz works.</p>
-        </div>
-        <button id="start-btn">Start Quiz!</button>
+      <div>
+        <p>Choose the best teams!  This is definitely not biased at all.</p>
+      </div>
+      <button id="start-btn">Start Quiz!</button>
     </section>
 
     <!--questions screen-->
     <section id="questions" class="hide">
-        <h2 id="question-title"></h2>
-        <div id="response-options"></div>
+      <h2 id="question-title"></h2>
+      <div id="response-options"></div>
     </section>
 
     <!--question feedback-->
     <section>
-        <div id="question-feedback" class="hide"></div>
+      <div id="question-feedback" class="hide"></div>
     </section>
 
     <!--finishing screen-->
     <section id="finish" class="hide">
-        <h2>Finished!</h2>
-        <div id="final-score"></div>
-        <p>
-            Enter your initials: <input type="text" id="initials" maxlength="3" />
-            <button id="finish-btn">Submit</button>
-        </p>
+      <h2>Finished!</h2>
+      <div id="final-score"></div>
+      <p>
+        Enter your initials: <input type="text" id="initials" maxlength="3" />
+        <button id="finish-btn">Submit</button>
+      </p>
     </section>
 
     <script src="./assets/javascript/script.js"></script>
-    
-</body>
-
+  </body>
 </html>
