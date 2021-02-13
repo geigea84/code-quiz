@@ -31,6 +31,7 @@ const finalScore = document.querySelector("#final-score");
 const initialsEl = document.querySelector("#initials");
 
 function startQuiz() {
+    //hide startEl and display questionsEl
     startEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
 
@@ -38,18 +39,22 @@ function startQuiz() {
     timerEl.textContent = time;
     timerId = setInterval(timerCountdown, 1000);
 
+    //call startQuestions function
     startQuestions();
 }
 
 function startQuestions() {
-
-    //use questionTitle and responseOptions rather than questionsEl?
+    //clears innerHTML from response options
     responseOptions.innerHTML = "";
 
+    //sets current question based on their array index
     let currentQuestion = questions[questionIndex]
 
+    //displays current question title
     questionTitle.textContent = currentQuestion.title;
 
+    //create button for current question response options
+    //append each button to the page
     currentQuestion.options.forEach(function (option) {
         let optionButton = document.createElement("button");
         optionButton.setAttribute("class", "option");
@@ -62,6 +67,8 @@ function startQuestions() {
         responseOptions.appendChild(optionButton);
     });
 
+    //if time is equal to or less than 0,
+    //set time to 0 and end quiz
     if (time <= 0) {
         time = 0;
         endQuiz();
@@ -69,31 +76,28 @@ function startQuestions() {
 }
 
 function answerQuestion() {
-    //connects to startQuestions => optionButton.setAttribute("value", option);
+    //click wrong response: display feedback Wrong and subtract time from timer
+    //click correct response: display feedback Correct
     if (this.value !== questions[questionIndex].answer) {
-        console.log(this.value);
-        console.log("wrong");
         time = time - 10;
-        //fix timing
         questionFeedback.setAttribute("class", "wrong");
         questionFeedback.textContent = "Wrong!";
     }
     else {
-        console.log(this.value);
-        console.log("correct");
-        //fix timing
         questionFeedback.setAttribute("class", "correct");
         questionFeedback.textContent = "Correct!";
     }
 
-    //questionFeedback.removeAttribute("class");
+    //set 500ms display time for feedback div
     setTimeout(function () {
         questionFeedback.setAttribute("class", "hide");
     }, 500);
 
+    //iterate through questions
     questionIndex++
-    console.log(questionIndex);
 
+    //no more questions: end quiz
+    //more questions: call next question
     if (questionIndex == questions.length) {
         setTimeout(endQuiz, 500);
     }
@@ -103,16 +107,19 @@ function answerQuestion() {
 }
 
 function endQuiz() {
+    //stop timer
     clearInterval(timerId);
+    //hide questions and timer, display finishEl
     questionsEl.setAttribute("class", "hide");
     timerEl.setAttribute("class", "hide");
     finishEl.removeAttribute("class");
-    console.log(time);
 
+    //if time is less than or equal to 0, set time to 0
     if (time <= 0) {
         time = 0;
     }
 
+    //score is time when timerId is stopped
     finalScore.textContent = "Your score is " + time;
     return;
 }
@@ -120,6 +127,8 @@ function endQuiz() {
 function timerCountdown() {
     timerEl.textContent = time;
 
+    //if timer is greater than 0 decrement time
+    //if timer is less than or equal to 0 call endQuiz
     if (time > 0) {
         time--;
     }
@@ -129,13 +138,17 @@ function timerCountdown() {
 }
 
 function saveScore() {
+    //remove whitespace from string
     let initials = initialsEl.value.trim();
 
+    //blank initials throw alert
+    //initials present then set to local storage and get all high scores
     if (initials == "") {
         alert("Please enter your initials");
     }
     else {
         //https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+        //get previous high scores from local storage (or blank array if none)
         let highScores = JSON.parse(window.localStorage.getItem("scores")) || [];
 
         let newScore = {
@@ -143,9 +156,11 @@ function saveScore() {
             initials: initials
         }
 
+        //add new high score to local storage array
         highScores.push(newScore);
         window.localStorage.setItem("scores", JSON.stringify(highScores));
 
+        //bring up scores.html page
         window.location.href = "scores.html"
     }
 }
